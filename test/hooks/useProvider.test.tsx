@@ -4,3 +4,7 @@
 // able to get data from deeply nested provider
 // query by specified name
 // error test
+
+it('empty', () => {
+  expect(true).toBe(true)
+})

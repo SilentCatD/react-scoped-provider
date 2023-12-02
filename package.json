@@ -1,5 +1,5 @@
 {
-  "name": "@silentcat/react-provider",
+  "name": "react-scoped-provider",
   "version": "0.0.1",
   "description": "Library for DI in react without the need of self-creating context everytime.",
   "type": "module",

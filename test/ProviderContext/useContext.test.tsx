@@ -21,3 +21,20 @@ it('useContext is usable with global ProviderContext', () => {
   const expected = textToRender
   expect(renderedText).toBe(expected)
 })
+
+it('scoped replace behavior', () => {
+  const textToRenderParent: string = 'RenderedParent'
+  const textToRenderChildren: string = 'RenderedChildren'
+  const { container } = render(
+    <ProviderScope value={textToRenderParent}>
+      <ProviderScope value={textToRenderChildren}>
+        <DisplayRendered />
+      </ProviderScope>
+    </ProviderScope>,
+  )
+
+  const element = getByTestId(container, 'text')
+  const renderedText = element.textContent
+  const expected = textToRenderChildren
+  expect(renderedText).toBe(expected)
+})

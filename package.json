@@ -60,6 +60,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SilentCatD/react-provider"
+    "url": "git+https://github.com/SilentCatD/react-scoped-provider"
   }
 }

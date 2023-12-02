@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1701540511621" clover="3.2.0">
-  <project timestamp="1701540511621" name="All files">
+<coverage generated="1701541015206" clover="3.2.0">
+  <project timestamp="1701541015207" name="All files">
     <metrics statements="74" coveredstatements="60" conditionals="20" coveredconditionals="14" methods="15" coveredmethods="11" elements="109" coveredelements="85" complexity="0" loc="74" ncloc="74" packages="6" files="9" classes="9"/>
     <package name="src">
       <metrics statements="29" coveredstatements="29" conditionals="4" coveredconditionals="4" methods="10" coveredmethods="9"/>
@@ -43,9 +43,9 @@
         <line num="29" count="6" type="stmt"/>
       </file>
     </package>
-    <package name="src.Nested">
+    <package name="src.MultiProvider">
       <metrics statements="9" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="index.tsx" path="D:\Documents\react-provider\src\Nested\index.tsx">
+      <file name="index.tsx" path="D:\Documents\react-provider\src\MultiProvider\index.tsx">
         <metrics statements="9" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="6" type="stmt"/>
         <line num="25" count="6" type="stmt"/>

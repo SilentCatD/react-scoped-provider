@@ -16,3 +16,17 @@ it('render without error', () => {
   const expectedText = 'Rendered'
   expect(renderedText).toBe(expectedText)
 })
+
+it('render with parent without error', () => {
+  const { container } = render(
+    <ProviderScope value={'parent data'}>
+      <ProviderScope value={'value'}>
+        <DisplayRendered />
+      </ProviderScope>
+    </ProviderScope>,
+  )
+  const rendered = getByTestId(container, 'text')
+  const renderedText = rendered.textContent
+  const expectedText = 'Rendered'
+  expect(renderedText).toBe(expectedText)
+})

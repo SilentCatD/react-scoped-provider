@@ -16,7 +16,7 @@
   "scripts": {
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "test": "jest --config jestconfig.json",
+    "test": "jest --coverage",
     "build": "microbundle",
     "dev": "microbundle watch",
     "prepare": "yarn run build",
@@ -30,6 +30,9 @@
   "author": "silent_cat",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@types/jest": "^29.5.10",
     "@types/react": "^18.2.40",

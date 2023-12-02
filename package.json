@@ -1,0 +1,26 @@
+{
+  "name": "@silentcat/react-provider",
+  "version": "1.0.0",
+  "description": "Library for DI in react without the need of self-creating context everytime.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "keywords": [
+    "di",
+    "context",
+    "provider"
+  ],
+  "author": "silent_cat",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.40",
+    "microbundle": "^0.15.1",
+    "react": "^18.2.0",
+    "typescript": "^5.3.2"
+  }
+}

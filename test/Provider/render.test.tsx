@@ -5,9 +5,21 @@ const DisplayRendered = () => {
   return <h1 data-testid='text'>Rendered</h1>
 }
 
-it('render without error', () => {
+it('render provided value without error', () => {
   const { container } = render(
     <Provider source={'value'}>
+      <DisplayRendered />
+    </Provider>,
+  )
+  const rendered = getByTestId(container, 'text')
+  const renderedText = rendered.textContent
+  const expectedText = 'Rendered'
+  expect(renderedText).toBe(expectedText)
+})
+
+it('render provided create without error', () => {
+  const { container } = render(
+    <Provider source={() => 'value'}>
       <DisplayRendered />
     </Provider>,
   )

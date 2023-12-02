@@ -19,10 +19,10 @@ type ReceivableElement =
   | FunctionComponentElement<any>
   | CElement<any, any>
   | ReactElement<any>
-type NestedProps = {
-  elements: ReceivableElement[]
+type MultiProviderProps = {
+  providers: ReceivableElement[]
 }
-const Nested: React.FC<PropsWithChildren<NestedProps>> = ({ elements, children }) => {
+const MultiProvider: React.FC<PropsWithChildren<MultiProviderProps>> = ({ providers, children }) => {
   const renderNested = (nestedElements: ReceivableElement[], nestedChildren?: ReactNode): ReactElement | ReactNode => {
     const [currentElement, ...remainingElement] = nestedElements
     if (currentElement) {
@@ -30,7 +30,7 @@ const Nested: React.FC<PropsWithChildren<NestedProps>> = ({ elements, children }
     }
     return children
   }
-  return renderNested(elements, children)
+  return renderNested(providers, children)
 }
-export type { ReceivableElement, NestedProps }
-export default Nested
+export type { ReceivableElement, MultiProviderProps as NestedProps }
+export default MultiProvider

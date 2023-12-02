@@ -3,12 +3,23 @@
   "version": "1.0.0",
   "description": "Library for DI in react without the need of self-creating context everytime.",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
+  "source": "src/index.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "prepare": "yarn run build",
+    "prepublishOnly": "yarn test && yarn run prettier && yarn run lint"
   },
   "keywords": [
     "di",
@@ -19,8 +30,20 @@
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^18.2.40",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "microbundle": "^0.15.1",
+    "prettier": "^3.1.0",
     "react": "^18.2.0",
     "typescript": "^5.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilentCatD/react-provider"
   }
 }

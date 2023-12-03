@@ -1,6 +1,3 @@
-// able to get data created by Create without update
-// able to get data created by Value with update
-
 import { PropsWithChildren, useState } from 'react'
 import { MultiProvider, Provider, ResourcesNotProvidedError, useProvider } from '../../src'
 import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react'

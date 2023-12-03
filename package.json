@@ -1,6 +1,6 @@
 {
   "name": "react-scoped-provider",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Library for DI in react without the need of self-creating context everytime.",
   "type": "module",
   "source": "src/index.ts",
@@ -23,8 +23,8 @@
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "test": "jest --coverage",
-    "build": "microbundle --tsconfig tsconfig.build.json",
-    "dev": "microbundle watch --tsconfig tsconfig.build.json",
+    "build": "microbundle --tsconfig tsconfig.build.json --jsx --jsxFragment",
+    "dev": "microbundle watch --tsconfig tsconfig.build.json --jsx --jsxFragment",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run prettier && yarn run lint"
   },
@@ -39,8 +39,6 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/plugin-transform-react-jsx": "^7.23.4",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@testing-library/jest-dom": "^6.1.5",

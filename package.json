@@ -23,8 +23,8 @@
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "test": "jest --coverage",
-    "build": "microbundle --tsconfig tsconfig.build.json",
-    "dev": "microbundle watch --tsconfig tsconfig.build.json",
+    "build": "microbundle --tsconfig tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react",
+    "dev": "microbundle watch --tsconfig tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run prettier && yarn run lint"
   },

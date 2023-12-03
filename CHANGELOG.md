@@ -1,6 +1,7 @@
 # 1.0.0
 
 - Finished docs
+- Update `useProvider` hook to use `useNamedProvider`
 
 # 0.2.0
 

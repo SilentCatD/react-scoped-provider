@@ -1,5 +1,5 @@
 import { PropsWithChildren, useState } from 'react'
-import { MultiProvider, Provider, ResourcesNotProvidedError, useProvider } from '../../src'
+import { MultiProvider, Provider, ResourcesNotProvidedError, useNamedProvider } from '../../src'
 import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react'
 
 class Counter {
@@ -9,24 +9,20 @@ class Counter {
   }
 }
 
-class CustomData {
+type CustomData = {
   key: string
   value: string
-  constructor(key: string, value: string) {
-    this.key = key
-    this.value = value
-  }
 }
 
 const ProviderComponent = ({ children }: PropsWithChildren) => {
   return (
     <MultiProvider
       providers={[
-        <Provider key={1} source={5} />,
-        <Provider key={2} source={true} />,
-        <Provider key={3} source={'test-text'} />,
-        <Provider key={4} source={new Counter(6)} />,
-        <Provider key={5} source={new CustomData('test-key', 'test-val')} name='custom' />,
+        <Provider key={1} source={5} name='test-number' />,
+        <Provider key={2} source={true} name='test-boolean' />,
+        <Provider key={3} source={'test-text'} name='test-text' />,
+        <Provider key={4} source={new Counter(6)} name='test-counter' />,
+        <Provider key={5} source={{ key: 'test-key', value: 'test-val' }} name='test-custom' />,
       ]}
     >
       {children}
@@ -35,11 +31,11 @@ const ProviderComponent = ({ children }: PropsWithChildren) => {
 }
 
 const ComsumerComponent = () => {
-  const number = useProvider(Number)
-  const boolean = useProvider(Boolean)
-  const text = useProvider(String)
-  const counter = useProvider(Counter)
-  const customData = useProvider(CustomData, 'custom')
+  const number = useNamedProvider<number>('test-number')
+  const boolean = useNamedProvider<boolean>('test-boolean')
+  const text = useNamedProvider<string>('test-text')
+  const counter = useNamedProvider<Counter>('test-counter')
+  const customData = useNamedProvider<CustomData>('test-custom')
   return (
     <>
       <h2 data-testid='number'>{number}</h2>
@@ -102,7 +98,7 @@ it('throw when not provided', async () => {
 const ProviderComponent2 = ({ children }: PropsWithChildren) => {
   const [count, setCount] = useState(0)
   return (
-    <Provider source={count}>
+    <Provider source={count} name='test-count'>
       <button data-testid='inc' onClick={() => setCount((value) => value + 1)}>
         Inc
       </button>
@@ -112,7 +108,7 @@ const ProviderComponent2 = ({ children }: PropsWithChildren) => {
 }
 
 const ComsumerComponent2 = () => {
-  const number = useProvider(Number)
+  const number = useNamedProvider<number>('test-count')
   return <h2 data-testid='number'>{number}</h2>
 }
 
@@ -140,7 +136,7 @@ it('child component update when provided value changed', () => {
 const ProviderComponent3 = ({ children }: PropsWithChildren) => {
   const [count, setCount] = useState(0)
   return (
-    <Provider source={() => count}>
+    <Provider source={() => count} name='test-count'>
       <button data-testid='inc' onClick={() => setCount((value) => value + 1)}>
         Inc
       </button>
@@ -150,7 +146,7 @@ const ProviderComponent3 = ({ children }: PropsWithChildren) => {
 }
 
 const ComsumerComponent3 = () => {
-  const number = useProvider(Number)
+  const number = useNamedProvider<number>('test-count')
   return <h2 data-testid='number'>{number}</h2>
 }
 

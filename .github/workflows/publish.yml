@@ -26,10 +26,12 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - run: echo "PACKAGE_VERSION=$(echo cat package.json | jq -r '.version')" >> $GITHUB_ENV
+      - run: echo "New version is ${{env.PACKAGE_VERSION}}"
       - run: yarn
       - run: yarn publish --new-version $PACKAGE_VERSION
         env:
-          PACKAGE_VERSION: cat package.json | jq -r '.version'
+          PACKAGE_VERSION: ${{env.PACKAGE_VERSION}}
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   commit-generated-in-build:

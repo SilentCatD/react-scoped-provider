@@ -1,3 +1,7 @@
+# 0.1.2
+
+- Setup coverage
+
 # 0.1.1
 
 - Setup github action flow

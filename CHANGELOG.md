@@ -1,3 +1,7 @@
+# 1.0.0
+
+- Finished docs
+
 # 0.2.0
 
 - Add `Cleanup` function in `Provider`, called when unmounted

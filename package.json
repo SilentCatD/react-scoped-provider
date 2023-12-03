@@ -1,6 +1,6 @@
 {
   "name": "react-scoped-provider",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Library for DI in react without the need of self-creating context everytime.",
   "type": "module",
   "source": "src/index.ts",

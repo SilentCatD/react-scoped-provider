@@ -1,3 +1,7 @@
+# 0.1.8
+
+- Make microbundle compatible with React
+
 # 0.1.7
 
 - Config jsxFragment

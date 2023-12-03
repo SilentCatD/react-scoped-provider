@@ -1,3 +1,8 @@
+# 1.0.0
+
+- Finished docs
+- Update `useProvider` hook to use `useNamedProvider`
+
 # 0.2.0
 
 - Add `Cleanup` function in `Provider`, called when unmounted

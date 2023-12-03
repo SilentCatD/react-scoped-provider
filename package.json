@@ -1,6 +1,6 @@
 {
   "name": "react-scoped-provider",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Library for DI in react without the need of self-creating context everytime.",
   "type": "module",
   "source": "src/index.ts",
@@ -39,6 +39,8 @@
     "react": ">=16"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/plugin-transform-react-jsx": "^7.23.4",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@testing-library/jest-dom": "^6.1.5",

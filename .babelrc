@@ -7,13 +7,6 @@
         "runtime": "automatic"
       }
     ],
-    "@babel/preset-typescript",
-    [
-      "@babel/plugin-transform-react-jsx",
-      {
-        "runtime": "automatic",
-        "importSource": "preact"
-      }
-    ]
+    "@babel/preset-typescript"
   ]
 }

@@ -1,3 +1,7 @@
+# 0.1.5
+
+- Fix h is not defined
+
 # 0.1.4
 
 - Put react in peer dependency

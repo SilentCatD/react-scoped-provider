@@ -6,5 +6,6 @@
   "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
   "testEnvironment": "jsdom",
-  "coverageReporters": ["json-summary", "text", "lcov"]
+  "coverageReporters": ["json-summary", "text", "lcov"],
+  "modulePathIgnorePatterns": ["example"]
 }

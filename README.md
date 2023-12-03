@@ -218,7 +218,7 @@ The above is equivalent to the traditional deeply nested structure:
 
 Using `MultiProvider` improves code readability and maintainability, making it easier to manage a large number of providers.
 
-### Conclusion
+## Conclusion
 
 Thank you for exploring and learning about the features and capabilities of the React Scoped Provider library. With its intuitive API and components like `Provider`, `MultiProvider`, `useProvider`, and `useNamedProvider`, managing and injecting dependencies in your React application becomes more flexible and straightforward.
 

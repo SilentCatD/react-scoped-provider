@@ -1,3 +1,7 @@
+# 0.2.0
+
+- Add `Cleanup` function in `Provider`, called when unmounted
+
 # 0.1.8
 
 - Make microbundle compatible with React

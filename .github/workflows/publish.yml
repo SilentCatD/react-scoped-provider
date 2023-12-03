@@ -36,14 +36,3 @@ jobs:
         env:
           PACKAGE_VERSION: ${{env.PACKAGE_VERSION}}
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  commit-generated-in-build:
-    needs: publish-npm
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: stefanzweifel/git-auto-commit-action@v5

@@ -1,3 +1,8 @@
+# 0.1.6
+
+- Fix h is not defined
+- Update publish.yml
+
 # 0.1.5
 
 - Fix h is not defined

@@ -1,3 +1,8 @@
+# 0.1.3
+
+- Remove test file from bundler
+- Update badges
+
 # 0.1.2
 
 - Setup coverage

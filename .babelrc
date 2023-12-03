@@ -7,12 +7,14 @@
         "runtime": "automatic"
       }
     ],
-    "@babel/preset-typescript",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
     [
       "@babel/plugin-transform-react-jsx",
       {
-        "runtime": "automatic",
-        "importSource": "preact"
+        "pragma": "h",
+        "pragmaFrag": "Fragment"
       }
     ]
   ]

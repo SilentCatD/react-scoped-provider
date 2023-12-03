@@ -16,6 +16,9 @@ jobs:
       - run: yarn
       - run: yarn test
       - run: yarn build
+      - uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   publish-npm:
     needs: test

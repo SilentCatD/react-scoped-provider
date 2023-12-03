@@ -26,5 +26,7 @@ A resources assiosiated with a life cycle of a view should also be disposed when
 ## Feature
 
 - Dependency Injection without the need to create `Context` manually for each `DataType`
-- Handled `Context` / `Provider` hell scenario
--
+- Handled `Context` hell scenario
+- Expose a value to a subtree, and change it to trigger re-render with different data, like traditional `Context` API
+- Expose a value to a subtree, and persist it between render with internal `useRef`.
+- Clean up provided resources when `Provider` is unmounted.

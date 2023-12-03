@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Put react in peer dependency
+
 # 0.1.3
 
 - Remove test file from bundler

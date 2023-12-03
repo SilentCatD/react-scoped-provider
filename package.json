@@ -23,8 +23,8 @@
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "test": "jest --coverage",
-    "build": "microbundle",
-    "dev": "microbundle watch",
+    "build": "microbundle --tsconfig tsconfig.build.json",
+    "dev": "microbundle watch --tsconfig tsconfig.build.json",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run prettier && yarn run lint"
   },

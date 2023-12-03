@@ -7813,10 +7813,10 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
-react-scoped-provider@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/react-scoped-provider/-/react-scoped-provider-0.1.6.tgz#f197f5d66c2def508ae9c3bdda60ba0e0c9eced6"
-  integrity sha512-8FbeR3q9lCn8vjhGHnyiTAFgYX2JS3h+3K+L+Pw/ZYTm1OvQlx4x6ixTOhxCjOSUansjQEJNr/ksNLAJSMSozA==
+react-scoped-provider@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/react-scoped-provider/-/react-scoped-provider-0.1.8.tgz#758178c0cedf5c0ebdaa552f0106367a6f0c707b"
+  integrity sha512-p90w7A/Wx1tInpsfpDELfqgHhwIRNSw6YZ3Y840pRae2WKxaiLkBoL0U1+nyMtA+PFLM1xB6IIklHSVPnOuzjQ==
 
 react-scripts@5.0.1:
   version "5.0.1"

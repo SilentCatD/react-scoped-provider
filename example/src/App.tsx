@@ -24,11 +24,11 @@ const Consumer = () => {
   return (
     <div>
       <h2>This should update on btn clicked: {count}</h2>
-      <h2>{text}</h2>
-      <h2>{truth ? 'true' : 'false'}</h2>
+      <h2>Provided String: {text}</h2>
+      <h2>Provided Boolean: {truth ? 'true' : 'false'}</h2>
       <h2>This should NOT update on btn clicked: {counter.count}</h2>
       <h2>
-        {customData.field}-{customData.field2}
+        Custom data: {customData.field}-{customData.field2}
       </h2>
     </div>
   )

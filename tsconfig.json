@@ -16,8 +16,6 @@
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "jsxFactory": "",
-    "jsxFragmentFactory": "",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true

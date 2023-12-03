@@ -1,3 +1,7 @@
+# 0.1.7
+
+- Config jsxFragment
+
 # 0.1.6
 
 - Fix h is not defined

@@ -7,17 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
+          node-version: 16
       - run: yarn
-
-      - name: Run the tests
-        run: yarn test
-
-      - name: Upload coverage to Codecov
+      - run: yarn test
       - uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

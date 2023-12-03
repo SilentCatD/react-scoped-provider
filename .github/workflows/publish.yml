@@ -1,4 +1,4 @@
-name: Publish NPM Package
+name: Build
 
 on:
   release:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: yarn 
+      - run: yarn
       - run: yarn test
       - run: yarn build
 
@@ -29,3 +29,14 @@ jobs:
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  commit-generated-in-build:
+    needs: publish-npm
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5

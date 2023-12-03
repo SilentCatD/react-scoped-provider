@@ -1,3 +1,11 @@
+# 0.1.8
+
+- Make microbundle compatible with React
+
+# 0.1.7
+
+- Config jsxFragment
+
 # 0.1.6
 
 - Fix h is not defined

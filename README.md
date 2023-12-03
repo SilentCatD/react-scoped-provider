@@ -6,6 +6,7 @@
 [![Build][github-build]][github-build-url]
 ![npm-typescript]
 [![License][github-license]][github-license-url]
+
 [npm-url]: https://www.npmjs.com/package/react-scoped-provider
 [npm-image]: https://img.shields.io/npm/v/react-scoped-provider
 [npm-bundle-size-url]: https://img.shields.io/bundlephobia/min/react-scoped-provider

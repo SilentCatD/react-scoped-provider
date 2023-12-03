@@ -120,7 +120,9 @@ You can customize the `cleanUp` function based on your specific needs, allowing 
 
 ### Retrive data
 
-Before retriving data, you must ensure the specified type is provided to current subtree. If not, an error will be thrown: `ResourcesNotProvidedError`
+Before retrieving data using hooks, ensure that the specified type is provided within the current subtree. If not, attempting to retrieve the data will result in an error, specifically the `ResourcesNotProvidedError`.
+
+This error serves as a helpful reminder to verify that the necessary data has been provided to the current subtree.
 
 #### Retrieving Primitive and Class Types
 

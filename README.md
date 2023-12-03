@@ -33,7 +33,7 @@ In particular, resources associated with the lifecycle of a view should be dispo
 
 ### Provider
 
-#### Provider a value
+#### Provide a value
 
 Expose a value to a subtree, this is closest to a traditional `Context` API's `Provider`.
 When used with `useState`, changes in this value may make dependent re-render with new data.

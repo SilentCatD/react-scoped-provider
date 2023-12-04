@@ -2,7 +2,7 @@ import { getObjectRuntimeName } from '../utils'
 import useNamedProvider from './useNamedProvider'
 
 interface UseProviderConfigs {
-  allowUndef: boolean
+  allowUndef?: boolean
   name?: string
 }
 
@@ -10,7 +10,7 @@ interface UseProviderConfigsAllowUndef extends UseProviderConfigs {
   allowUndef: true
 }
 interface UseProviderConfigsDisAllowUndef extends UseProviderConfigs {
-  allowUndef: false
+  allowUndef?: false
 }
 
 function useProvider(ctor: StringConstructor, configs: UseProviderConfigsAllowUndef): string | undefined

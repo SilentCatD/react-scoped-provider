@@ -3,7 +3,7 @@ import { ProviderContext } from '../ProviderContext'
 import { ResourcesNotProvidedError } from '../errors'
 
 interface UseNamedProviderConfig {
-  allowUndef: boolean
+  allowUndef?: boolean
 }
 
 interface UseNamedProviderConfigAllowUndef extends UseNamedProviderConfig {
@@ -11,7 +11,7 @@ interface UseNamedProviderConfigAllowUndef extends UseNamedProviderConfig {
 }
 
 interface UseNamedProviderConfigDisAllowUndef extends UseNamedProviderConfig {
-  allowUndef: false
+  allowUndef?: false
 }
 function useNamedProvider<T>(name: string): T
 function useNamedProvider<T>(name: string, configs: UseNamedProviderConfigAllowUndef): T | undefined

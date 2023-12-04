@@ -1,100 +1,109 @@
 import { useNamedProvider } from '../hooks'
 import { getObjectRuntimeName } from '../utils'
 
-interface UndefNamedConsumerProps<T> {
-  children: (data?: T) => JSX.Element
+interface ConsumerProps<T> {
+  children: (data: T) => JSX.Element
+  name?: string
+  ctor?: new (...a: any) => any
+  allowUndef?: boolean
+}
+
+interface NamedConsumerProps<T> extends ConsumerProps<T> {
   name: string
   ctor?: undefined
-  allowUndef?: boolean
 }
 
-interface NamedConsumerProps<T> {
-  children: (data: T) => JSX.Element
-  name: string
-  ctor?: undefined
+interface NamedConsumerAllowUndefProps<T> extends NamedConsumerProps<T | undefined> {
+  allowUndef: true
+}
+
+interface NamedConsumerDisAllowUndefProps<T> extends NamedConsumerProps<T> {
   allowUndef?: false
 }
 
-interface UndefCtorConsumerProps<T> {
-  children: (data?: T) => JSX.Element
+interface CtorConsumerProps<T> extends ConsumerProps<T> {
   ctor: new (...a: any) => T
-  name?: string
-  allowUndef?: boolean
 }
 
-interface CtorConsumerProps<T> {
-  children: (data: T) => JSX.Element
-  ctor: new (...a: any) => T
-  allowUndef?: false
-  name?: string
+interface CtorConsumerAllowUndefProps<T> extends CtorConsumerProps<T | undefined> {
+  allowUndef: true
 }
-interface StringConsumerProps {
-  children: (data: string) => JSX.Element
+
+interface CtorConsumerDisAllowUndefProps<T> extends CtorConsumerProps<T> {
+  allowUndef?: false
+}
+
+interface StringConsumerProps<T> extends ConsumerProps<T> {
   ctor: StringConstructor
-  allowUndef?: false
-  name?: string
 }
 
-interface UndefStringConsumerProps {
-  children: (data?: string) => JSX.Element
-  ctor: StringConstructor
-  allowUndef?: boolean
-  name?: string
+interface StringConsumerAllowUndefProps extends StringConsumerProps<string | undefined> {
+  allowUndef: true
 }
-interface BooleanConsumerProps {
-  name?: string
-  children: (data: boolean) => JSX.Element
+
+interface StringConsumerDisAllowUndefProps extends StringConsumerProps<string> {
+  allowUndef?: false
+}
+interface BooleanConsumerProps<T> extends ConsumerProps<T> {
   ctor: BooleanConstructor
+}
+interface BooleanConsumerAllowUndefProps extends BooleanConsumerProps<boolean | undefined> {
+  allowUndef: true
+}
+
+interface BooleanConsumerDisAllowUndefProps extends BooleanConsumerProps<boolean> {
+  allowUndef?: false
+}
+interface NumberConsumerProps<T> extends ConsumerProps<T> {
+  ctor: NumberConstructor
+}
+interface NumberConsumerAllowUndefProps extends NumberConsumerProps<number | undefined> {
+  allowUndef: true
+}
+interface NumberConsumerDisAllowUndefProps extends NumberConsumerProps<number> {
   allowUndef?: false
 }
 
-interface UndefBooleanConsumerProps {
-  name?: string
-  children: (data?: boolean) => JSX.Element
-  ctor: BooleanConstructor
-  allowUndef?: boolean
-}
-interface NumberConsumerProps {
-  name?: string
-  children: (data: number) => JSX.Element
-  ctor: NumberConstructor
-  allowUndef?: false
-}
-
-interface UndefNumberConsumerProps {
-  name?: string
-  children: (data?: number) => JSX.Element
-  ctor: NumberConstructor
-  allowUndef?: boolean
-}
-
-function Consumer(props: BooleanConsumerProps): JSX.Element
-function Consumer(props: UndefBooleanConsumerProps): JSX.Element
-function Consumer(props: NumberConsumerProps): JSX.Element
-function Consumer(props: UndefNumberConsumerProps): JSX.Element
-function Consumer(props: StringConsumerProps): JSX.Element
-function Consumer(props: UndefStringConsumerProps): JSX.Element
-function Consumer<T>(props: CtorConsumerProps<T>): JSX.Element
-function Consumer<T>(props: UndefCtorConsumerProps<T>): JSX.Element
-function Consumer<T>(props: NamedConsumerProps<T>): JSX.Element
-function Consumer<T>(props: UndefNamedConsumerProps<T>): JSX.Element
-function Consumer<T>(props: UndefCtorConsumerProps<T> | UndefNamedConsumerProps<T>): JSX.Element {
-  const { children, name, ctor, allowUndef = false } = props
+function Consumer(props: NumberConsumerAllowUndefProps): JSX.Element
+function Consumer(props: NumberConsumerDisAllowUndefProps): JSX.Element
+function Consumer(props: BooleanConsumerAllowUndefProps): JSX.Element
+function Consumer(props: BooleanConsumerDisAllowUndefProps): JSX.Element
+function Consumer(props: BooleanConsumerAllowUndefProps): JSX.Element
+function Consumer(props: StringConsumerAllowUndefProps): JSX.Element
+function Consumer(props: StringConsumerDisAllowUndefProps): JSX.Element
+function Consumer(props: StringConsumerAllowUndefProps): JSX.Element
+function Consumer<T>(props: CtorConsumerAllowUndefProps<T>): JSX.Element
+function Consumer<T>(props: CtorConsumerDisAllowUndefProps<T>): JSX.Element
+function Consumer<T>(props: NamedConsumerAllowUndefProps<T>): JSX.Element
+function Consumer<T>(props: NamedConsumerDisAllowUndefProps<T>): JSX.Element
+function Consumer<T>(props: ConsumerProps<T | undefined>): JSX.Element {
+  const { children, name, ctor, allowUndef } = props
   const queryName = name ?? getObjectRuntimeName(ctor)
   const data = useNamedProvider<T>(queryName, { allowUndef })
   return children(data)
 }
 
-export { Consumer }
-export type {
-  BooleanConsumerProps,
-  UndefBooleanConsumerProps,
-  NumberConsumerProps,
-  UndefNumberConsumerProps,
-  StringConsumerProps,
-  UndefStringConsumerProps,
-  CtorConsumerProps,
-  UndefCtorConsumerProps,
-  NamedConsumerProps,
-  UndefNamedConsumerProps,
+class A {}
+type X = {}
+
+const t = () => {
+  return (
+    <Consumer allowUndef={true} ctor={String} name='dasd'>
+      {(value) => <>{value}</>}
+    </Consumer>
+  )
 }
+
+export { Consumer }
+// export type {
+//   BooleanConsumerProps,
+//   UndefBooleanConsumerProps,
+//   NumberConsumerProps,
+//   UndefNumberConsumerProps,
+//   StringConsumerProps,
+//   UndefStringConsumerProps,
+//   CtorConsumerProps,
+//   UndefCtorConsumerProps,
+//   NamedConsumerProps,
+//   UndefNamedConsumerProps,
+// }

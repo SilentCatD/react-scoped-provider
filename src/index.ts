@@ -1,4 +1,4 @@
-import MultiProvider, { ReceivableElement, NestedProps } from './MultiProvider'
+import MultiProvider, { ReceivableElement, MultiProviderProps } from './MultiProvider'
 import { useProvider, useNamedProvider } from './hooks'
 import { Provider, ProviderProps } from './Provider'
 import { ContextData, ProviderContext } from './ProviderContext'
@@ -11,6 +11,6 @@ export { ProviderProps, Provider }
 export { ProviderScope, ProviderScopeProps }
 export { ProviderContext, ContextData }
 export { useProvider, useNamedProvider }
-export { MultiProvider, ReceivableElement, NestedProps }
+export { MultiProvider, ReceivableElement, MultiProviderProps }
 export { ResourcesNotProvidedError }
 export { getObjectRuntimeName, isCreate }

@@ -32,5 +32,5 @@ const MultiProvider: React.FC<PropsWithChildren<MultiProviderProps>> = ({ provid
   }
   return renderNested(providers, children)
 }
-export type { ReceivableElement, MultiProviderProps as NestedProps }
+export type { ReceivableElement, MultiProviderProps }
 export default MultiProvider

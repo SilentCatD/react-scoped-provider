@@ -99,6 +99,94 @@ it('throw when not provided', async () => {
   jest.restoreAllMocks()
 })
 
+const UndefComsumerComponent = () => {
+  const number = useNamedProvider<number>('test-number', { allowUndef: true })
+  const boolean = useNamedProvider<boolean>('test-boolean', { allowUndef: true })
+  const text = useNamedProvider<string>('test-text', { allowUndef: true })
+  const counter = useNamedProvider<Counter>('test-counter', { allowUndef: true })
+  const customData = useNamedProvider<CustomData>('test-custom', { allowUndef: true })
+  return (
+    <>
+      <h2 data-testid='number'>{number}</h2>
+      <h2 data-testid='boolean'>{boolean ? 'true' : 'false'}</h2>
+      <h2 data-testid='text'>{text}</h2>
+      <h2 data-testid='count'>{counter?.count}</h2>
+      <h2 data-testid='key'>{customData?.key}</h2>
+      <h2 data-testid='value'>{customData?.value}</h2>
+    </>
+  )
+}
+
+it('not throw when not provided and allowUndef', async () => {
+  const { container } = render(<UndefComsumerComponent />)
+  const renderedNumberElement = getByTestId(container, 'number')
+  const renderedNumber = renderedNumberElement.textContent
+  const expectedNumber = ''
+  expect(renderedNumber).toBe(expectedNumber)
+
+  const renderedBooleanElement = getByTestId(container, 'boolean')
+  const renderedBoolean = renderedBooleanElement.textContent
+  const expectedBoolean = 'false'
+  expect(renderedBoolean).toBe(expectedBoolean)
+
+  const renderedTextElement = getByTestId(container, 'text')
+  const renderedText = renderedTextElement.textContent
+  const expectedText = ''
+  expect(renderedText).toBe(expectedText)
+
+  const renderedCountElement = getByTestId(container, 'count')
+  const renderedCount = renderedCountElement.textContent
+  const expectedCount = ''
+  expect(renderedCount).toBe(expectedCount)
+
+  const renderedKeyElement = getByTestId(container, 'key')
+  const renderedKey = renderedKeyElement.textContent
+  const expectedKey = ''
+  expect(renderedKey).toBe(expectedKey)
+
+  const renderedValueElement = getByTestId(container, 'value')
+  const renderedValue = renderedValueElement.textContent
+  const expectedValue = ''
+  expect(renderedValue).toBe(expectedValue)
+})
+
+it('not throw when provided and allowUndef', async () => {
+  const { container } = render(
+    <ProviderComponent>
+      <UndefComsumerComponent />
+    </ProviderComponent>,
+  )
+  const renderedNumberElement = getByTestId(container, 'number')
+  const renderedNumber = renderedNumberElement.textContent
+  const expectedNumber = '5'
+  expect(renderedNumber).toBe(expectedNumber)
+
+  const renderedBooleanElement = getByTestId(container, 'boolean')
+  const renderedBoolean = renderedBooleanElement.textContent
+  const expectedBoolean = 'true'
+  expect(renderedBoolean).toBe(expectedBoolean)
+
+  const renderedTextElement = getByTestId(container, 'text')
+  const renderedText = renderedTextElement.textContent
+  const expectedText = 'test-text'
+  expect(renderedText).toBe(expectedText)
+
+  const renderedCountElement = getByTestId(container, 'count')
+  const renderedCount = renderedCountElement.textContent
+  const expectedCount = '6'
+  expect(renderedCount).toBe(expectedCount)
+
+  const renderedKeyElement = getByTestId(container, 'key')
+  const renderedKey = renderedKeyElement.textContent
+  const expectedKey = 'test-key'
+  expect(renderedKey).toBe(expectedKey)
+
+  const renderedValueElement = getByTestId(container, 'value')
+  const renderedValue = renderedValueElement.textContent
+  const expectedValue = 'test-val'
+  expect(renderedValue).toBe(expectedValue)
+})
+
 const ProviderComponent2 = ({ children }: PropsWithChildren) => {
   const [count, setCount] = useState(0)
   return (

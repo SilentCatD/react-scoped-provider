@@ -1,17 +1,20 @@
 import { useContext } from 'react'
 import { ProviderContext } from '../ProviderContext'
 import { ResourcesNotProvidedError } from '../errors'
-import { ProviderConfigs } from '../types'
+
+type UseNamedProviderConfig = {
+  allowUndef: boolean
+}
 
 function useNamedProvider<T>(name: string): T
-function useNamedProvider<T>(name: string, configs?: ProviderConfigs): T | undefined
-function useNamedProvider<T>(name: string, configs?: ProviderConfigs): T | undefined {
+function useNamedProvider<T>(name: string, configs: UseNamedProviderConfig): T | undefined
+function useNamedProvider<T>(name: string, configs?: UseNamedProviderConfig): T | undefined {
   const key = name
   const parentDataContext = useContext(ProviderContext)
   const parentData = parentDataContext?.data
   const parentDataExisted = parentData?.has(key) ?? false
   if (!parentDataExisted) {
-    if (configs?.allowUndefined === true) {
+    if (configs?.allowUndef === true) {
       return undefined
     }
     throw new ResourcesNotProvidedError(key)
@@ -21,3 +24,4 @@ function useNamedProvider<T>(name: string, configs?: ProviderConfigs): T | undef
 }
 
 export default useNamedProvider
+export { UseNamedProviderConfig }

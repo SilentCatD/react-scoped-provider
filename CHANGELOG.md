@@ -1,3 +1,8 @@
+# 1.0.2
+
+- Fix docs typo
+- Fix test run example
+
 # 1.0.1
 
 - Fix docs typo

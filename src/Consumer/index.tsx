@@ -1,25 +1,25 @@
 import { useNamedProvider } from '../hooks'
 import { getObjectRuntimeName } from '../utils'
 
-interface ConsumberProps<T> {
+interface ConsumerProps<T> {
   children: (data: T) => JSX.Element
   name?: string
 }
 
-interface NamedConsumerProps<T> extends ConsumberProps<T> {
+interface NamedConsumerProps<T> extends ConsumerProps<T> {
   name: string
   ctor?: undefined
 }
-interface CtorConsumerProps<T> extends ConsumberProps<T> {
+interface CtorConsumerProps<T> extends ConsumerProps<T> {
   ctor: new (...a: any) => T
 }
-interface StringConsumerProps extends ConsumberProps<string> {
+interface StringConsumerProps extends ConsumerProps<string> {
   ctor: StringConstructor
 }
-interface BooleanConsumerProps extends ConsumberProps<boolean> {
+interface BooleanConsumerProps extends ConsumerProps<boolean> {
   ctor: BooleanConstructor
 }
-interface NumberConsumerProps extends ConsumberProps<number> {
+interface NumberConsumerProps extends ConsumerProps<number> {
   ctor: NumberConstructor
 }
 
@@ -36,4 +36,11 @@ function Consumer<T>(props: CtorConsumerProps<T> | NamedConsumerProps<T>): JSX.E
 }
 
 export { Consumer }
-export type { ConsumberProps }
+export type {
+  ConsumerProps,
+  BooleanConsumerProps,
+  NumberConsumerProps,
+  StringConsumerProps,
+  CtorConsumerProps,
+  NamedConsumerProps,
+}

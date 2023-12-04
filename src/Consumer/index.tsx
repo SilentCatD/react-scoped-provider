@@ -68,10 +68,8 @@ function Consumer(props: NumberConsumerAllowUndefProps): JSX.Element
 function Consumer(props: NumberConsumerDisAllowUndefProps): JSX.Element
 function Consumer(props: BooleanConsumerAllowUndefProps): JSX.Element
 function Consumer(props: BooleanConsumerDisAllowUndefProps): JSX.Element
-function Consumer(props: BooleanConsumerAllowUndefProps): JSX.Element
 function Consumer(props: StringConsumerAllowUndefProps): JSX.Element
 function Consumer(props: StringConsumerDisAllowUndefProps): JSX.Element
-function Consumer(props: StringConsumerAllowUndefProps): JSX.Element
 function Consumer<T>(props: CtorConsumerAllowUndefProps<T>): JSX.Element
 function Consumer<T>(props: CtorConsumerDisAllowUndefProps<T>): JSX.Element
 function Consumer<T>(props: NamedConsumerAllowUndefProps<T>): JSX.Element
@@ -83,27 +81,16 @@ function Consumer<T>(props: ConsumerProps<T | undefined>): JSX.Element {
   return children(data)
 }
 
-class A {}
-type X = {}
-
-const t = () => {
-  return (
-    <Consumer allowUndef={true} ctor={String} name='dasd'>
-      {(value) => <>{value}</>}
-    </Consumer>
-  )
-}
-
 export { Consumer }
-// export type {
-//   BooleanConsumerProps,
-//   UndefBooleanConsumerProps,
-//   NumberConsumerProps,
-//   UndefNumberConsumerProps,
-//   StringConsumerProps,
-//   UndefStringConsumerProps,
-//   CtorConsumerProps,
-//   UndefCtorConsumerProps,
-//   NamedConsumerProps,
-//   UndefNamedConsumerProps,
-// }
+export type {
+  NumberConsumerAllowUndefProps,
+  NumberConsumerDisAllowUndefProps,
+  BooleanConsumerAllowUndefProps,
+  BooleanConsumerDisAllowUndefProps,
+  StringConsumerAllowUndefProps,
+  StringConsumerDisAllowUndefProps,
+  CtorConsumerAllowUndefProps,
+  CtorConsumerDisAllowUndefProps,
+  NamedConsumerDisAllowUndefProps,
+  NamedConsumerAllowUndefProps,
+}

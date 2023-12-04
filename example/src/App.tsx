@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { MultiProvider, Provider, useNamedProvider, useProvider } from 'react-scoped-provider'
@@ -23,11 +23,11 @@ const Consumer = () => {
   const customData = useNamedProvider<CustomData>('customData')
   return (
     <div>
-      <h2>This should update on btn clicked: {count}</h2>
-      <h2>Provided String: {text}</h2>
-      <h2>Provided Boolean: {truth ? 'true' : 'false'}</h2>
-      <h2>This should NOT update on btn clicked: {counter.count}</h2>
-      <h2>
+      <h2 data-testid='counter-value'>This should update on btn clicked: {count}</h2>
+      <h2 data-testid='string'>Provided String: {text}</h2>
+      <h2 data-testid='boolean'>Provided Boolean: {truth ? 'true' : 'false'}</h2>
+      <h2 data-testid='counter-create'>This should NOT update on btn clicked: {counter.count}</h2>
+      <h2 data-testid='custom-data'>
         Custom data: {customData.field}-{customData.field2}
       </h2>
     </div>
@@ -59,7 +59,7 @@ function App() {
           <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
             Learn React
           </a>
-          <button className='App-button' onClick={() => setCount((value) => value + 1)}>
+          <button className='App-button' data-testid='btn' onClick={() => setCount((value) => value + 1)}>
             Inc
           </button>
           <Consumer />

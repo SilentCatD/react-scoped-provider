@@ -35,21 +35,5 @@ function Consumer<T>(props: Specialized<T> | SpecializedNamed<T>): JSX.Element {
   return build(data)
 }
 
-class A {
-  count?: number
-}
-const t = () => {
-  return <Consumer ctor={String} build={(value) => <>{value}</>} />
-  return <Consumer ctor={Boolean} build={(value) => <>{value}</>} />
-  return <Consumer ctor={String} build={(value) => <>{value}</>} />
-  return <Consumer ctor={A} build={(value) => <>{value.count}</>} />
-  return <Consumer<A> ctor={A} build={(value) => <>{value.count}</>} />
-  return <Consumer<A> name='asdsad' build={(data) => <>{data.count}</>} />
-}
-// function useProvider(ctor: StringConstructor, name?: string): string
-// function useProvider(ctor: BooleanConstructor, name?: string): boolean
-// function useProvider(ctor: NumberConstructor, name?: string): number
-// function useProvider<T>(ctor: new (...a: any) => T, name?: string): T
-
 export { Consumer }
 export type { ConsumberProps }

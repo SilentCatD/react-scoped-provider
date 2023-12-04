@@ -2,6 +2,10 @@ import { PropsWithChildren, useState } from 'react'
 import { MultiProvider, Provider, ResourcesNotProvidedError, useNamedProvider } from '../../src'
 import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react'
 
+const Nester = ({ children }: PropsWithChildren) => {
+  return <div>{children}</div>
+}
+
 class Counter {
   count: number
   constructor(count: number) {
@@ -115,7 +119,42 @@ const ComsumerComponent2 = () => {
 it('child component update when provided value changed', () => {
   const { container } = render(
     <ProviderComponent2>
-      <ComsumerComponent2 />
+      <Nester>
+        <Nester>
+          <Nester>
+            <Nester>
+              <Nester>
+                <ComsumerComponent2 />
+              </Nester>
+            </Nester>
+          </Nester>
+        </Nester>
+      </Nester>
+    </ProviderComponent2>,
+  )
+
+  const btnElement = getByTestId(container, 'inc')
+  const textElement = getByTestId(container, 'number')
+  expect(textElement.textContent).toBe('0')
+
+  fireEvent.click(btnElement)
+  expect(textElement.textContent).toBe('1')
+
+  fireEvent.click(btnElement)
+  expect(textElement.textContent).toBe('2')
+
+  fireEvent.click(btnElement)
+  expect(textElement.textContent).toBe('3')
+})
+
+const ConsumerRepresenter2 = () => {
+  return <ComsumerComponent2 />
+}
+
+it('child reoresenter component update when provided value changed', () => {
+  const { container } = render(
+    <ProviderComponent2>
+      <ConsumerRepresenter2 />
     </ProviderComponent2>,
   )
 
@@ -153,7 +192,42 @@ const ComsumerComponent3 = () => {
 it('child component NOT update when provided Create changed', () => {
   const { container } = render(
     <ProviderComponent3>
-      <ComsumerComponent3 />
+      <Nester>
+        <Nester>
+          <Nester>
+            <Nester>
+              <Nester>
+                <ComsumerComponent3 />
+              </Nester>
+            </Nester>
+          </Nester>
+        </Nester>
+      </Nester>
+    </ProviderComponent3>,
+  )
+
+  const btnElement = getByTestId(container, 'inc')
+  const textElement = getByTestId(container, 'number')
+  expect(textElement.textContent).toBe('0')
+
+  fireEvent.click(btnElement)
+  expect(textElement.textContent).toBe('0')
+
+  fireEvent.click(btnElement)
+  expect(textElement.textContent).toBe('0')
+
+  fireEvent.click(btnElement)
+  expect(textElement.textContent).toBe('0')
+})
+
+const ConsumerRepresenter3 = () => {
+  return <ComsumerComponent3 />
+}
+
+it('child representer component NOT update when provided Create changed', () => {
+  const { container } = render(
+    <ProviderComponent3>
+      <ConsumerRepresenter3 />
     </ProviderComponent3>,
   )
 

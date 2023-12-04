@@ -2,7 +2,7 @@ import { useNamedProvider } from '../hooks'
 import { getObjectRuntimeName } from '../utils'
 
 interface ConsumberProps<T> {
-  build: (data: T) => JSX.Element
+  children: (data: T) => JSX.Element
   name?: string
 }
 
@@ -29,10 +29,10 @@ function Consumer(props: SpecializedString): JSX.Element
 function Consumer<T>(props: Specialized<T>): JSX.Element
 function Consumer<T>(props: SpecializedNamed<T>): JSX.Element
 function Consumer<T>(props: Specialized<T> | SpecializedNamed<T>): JSX.Element {
-  const { build, name, ctor } = props
+  const { children, name, ctor } = props
   const queryName = name ?? getObjectRuntimeName(ctor)
   const data = useNamedProvider<T>(queryName)
-  return build(data)
+  return children(data)
 }
 
 export { Consumer }

@@ -70,7 +70,7 @@ it('can get provided data without error for primitives and class', () => {
 
   const renderedTextElement = getByTestId(container, 'text')
   const renderedText = renderedTextElement.textContent
-  const expectedText = 'test-text a'
+  const expectedText = 'test-text'
   expect(renderedText).toBe(expectedText)
 
   const renderedCountElement = getByTestId(container, 'count')

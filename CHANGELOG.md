@@ -1,3 +1,8 @@
+# 1.0.1
+
+- Fix docs typo
+- Add test for example after deploy
+
 # 1.0.0
 
 - Finished docs

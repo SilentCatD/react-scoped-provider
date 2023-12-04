@@ -1,3 +1,7 @@
 type Create<T> = () => T
 
-export type { Create }
+type ProviderConfigs = {
+  allowUndefined: boolean
+}
+
+export type { Create, ProviderConfigs }

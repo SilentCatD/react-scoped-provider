@@ -5,7 +5,7 @@ import { ContextData, ProviderContext } from './ProviderContext'
 import { ProviderScope, ProviderScopeProps } from './ProviderScope'
 import { ResourcesNotProvidedError } from './errors'
 import { getObjectRuntimeName, isCreate } from './utils'
-import { Create } from './types'
+import { Create, ProviderConfigs } from './types'
 import {
   Consumer,
   ConsumerProps,
@@ -24,7 +24,7 @@ export type {
   CtorConsumerProps,
   NamedConsumerProps,
 }
-export { Create }
+export { Create, ProviderConfigs }
 export { ProviderProps, Provider }
 export { ProviderScope, ProviderScopeProps }
 export { ProviderContext, ContextData }

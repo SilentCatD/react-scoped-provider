@@ -6,29 +6,29 @@ interface ConsumberProps<T> {
   name?: string
 }
 
-interface SpecializedNamed<T> extends ConsumberProps<T> {
+interface NamedConsumerProps<T> extends ConsumberProps<T> {
   name: string
   ctor?: undefined
 }
-interface Specialized<T> extends ConsumberProps<T> {
+interface CtorConsumerProps<T> extends ConsumberProps<T> {
   ctor: new (...a: any) => T
 }
-interface SpecializedString extends ConsumberProps<string> {
+interface StringConsumerProps extends ConsumberProps<string> {
   ctor: StringConstructor
 }
-interface SpecializedBoolean extends ConsumberProps<boolean> {
+interface BooleanConsumerProps extends ConsumberProps<boolean> {
   ctor: BooleanConstructor
 }
-interface SpecializedNumber extends ConsumberProps<number> {
+interface NumberConsumerProps extends ConsumberProps<number> {
   ctor: NumberConstructor
 }
 
-function Consumer(props: SpecializedBoolean): JSX.Element
-function Consumer(props: SpecializedNumber): JSX.Element
-function Consumer(props: SpecializedString): JSX.Element
-function Consumer<T>(props: Specialized<T>): JSX.Element
-function Consumer<T>(props: SpecializedNamed<T>): JSX.Element
-function Consumer<T>(props: Specialized<T> | SpecializedNamed<T>): JSX.Element {
+function Consumer(props: BooleanConsumerProps): JSX.Element
+function Consumer(props: NumberConsumerProps): JSX.Element
+function Consumer(props: StringConsumerProps): JSX.Element
+function Consumer<T>(props: CtorConsumerProps<T>): JSX.Element
+function Consumer<T>(props: NamedConsumerProps<T>): JSX.Element
+function Consumer<T>(props: CtorConsumerProps<T> | NamedConsumerProps<T>): JSX.Element {
   const { children, name, ctor } = props
   const queryName = name ?? getObjectRuntimeName(ctor)
   const data = useNamedProvider<T>(queryName)

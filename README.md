@@ -118,7 +118,7 @@ The `cleanUp` function is executed automatically when the `Provider` is unmounte
 
 You can customize the `cleanUp` function based on your specific needs, allowing you to perform cleanup operations tailored to the nature of the provided data.
 
-### Retrive data
+### Retrieve data
 
 Before retrieving data using hooks, ensure that the specified type is provided within the current subtree. If not, attempting to retrieve the data will result in an error, specifically the `ResourcesNotProvidedError`.
 

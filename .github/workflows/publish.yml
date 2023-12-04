@@ -36,3 +36,16 @@ jobs:
         env:
           PACKAGE_VERSION: ${{env.PACKAGE_VERSION}}
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  test-example:
+    needs: publish-npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: cd example
+      - run: yarn
+      - run: yarn test
+      - run: yarn build

@@ -43,7 +43,7 @@ const t = () => {
   return <Consumer ctor={Boolean} build={(value) => <>{value}</>} />
   return <Consumer ctor={String} build={(value) => <>{value}</>} />
   return <Consumer ctor={A} build={(value) => <>{value.count}</>} />
-  return <Consumer<A> build={(value) => <>{value.count}</>} name='asdsa' />
+  return <Consumer<A> ctor={A} build={(value) => <>{value.count}</>} />
   return <Consumer<A> name='asdsad' build={(data) => <>{data.count}</>} />
 }
 // function useProvider(ctor: StringConstructor, name?: string): string

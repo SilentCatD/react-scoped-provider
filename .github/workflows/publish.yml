@@ -45,7 +45,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: cd example
-      - run: yarn
-      - run: yarn test
-      - run: yarn build
+      - working-directory: ./example
+        run: |
+          yarn 
+          yarn test
+          yarn build

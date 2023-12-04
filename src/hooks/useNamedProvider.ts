@@ -2,12 +2,21 @@ import { useContext } from 'react'
 import { ProviderContext } from '../ProviderContext'
 import { ResourcesNotProvidedError } from '../errors'
 
-type UseNamedProviderConfig = {
+interface UseNamedProviderConfig {
   allowUndef: boolean
 }
 
+interface UseNamedProviderConfigAllowUndef extends UseNamedProviderConfig {
+  allowUndef: true
+}
+
+interface UseNamedProviderConfigDisAllowUndef extends UseNamedProviderConfig {
+  allowUndef: false
+}
 function useNamedProvider<T>(name: string): T
-function useNamedProvider<T>(name: string, configs: UseNamedProviderConfig): T | undefined
+function useNamedProvider<T>(name: string, configs: UseNamedProviderConfigAllowUndef): T | undefined
+function useNamedProvider<T>(name: string, configs: UseNamedProviderConfigDisAllowUndef): T
+function useNamedProvider<T>(name: string, configs?: UseNamedProviderConfig): T | undefined
 function useNamedProvider<T>(name: string, configs?: UseNamedProviderConfig): T | undefined {
   const key = name
   const parentDataContext = useContext(ProviderContext)
@@ -24,4 +33,4 @@ function useNamedProvider<T>(name: string, configs?: UseNamedProviderConfig): T 
 }
 
 export default useNamedProvider
-export { UseNamedProviderConfig }
+export { UseNamedProviderConfigDisAllowUndef, UseNamedProviderConfig, UseNamedProviderConfigAllowUndef }

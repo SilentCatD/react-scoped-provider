@@ -1,7 +1,18 @@
 import useProvider from './useProvider'
 import useNamedProvider from './useNamedProvider'
-import { UseNamedProviderConfig } from './useNamedProvider'
-import { UseProviderConfigs } from './useProvider'
+import {
+  UseNamedProviderConfigAllowUndef,
+  UseNamedProviderConfigDisAllowUndef,
+  UseNamedProviderConfig,
+} from './useNamedProvider'
+import { UseProviderConfigs, UseProviderConfigsAllowUndef, UseProviderConfigsDisAllowUndef } from './useProvider'
 
 export { useProvider, useNamedProvider }
-export type { UseNamedProviderConfig, UseProviderConfigs }
+export type {
+  UseNamedProviderConfig,
+  UseNamedProviderConfigAllowUndef,
+  UseNamedProviderConfigDisAllowUndef,
+  UseProviderConfigs,
+  UseProviderConfigsAllowUndef,
+  UseProviderConfigsDisAllowUndef,
+}

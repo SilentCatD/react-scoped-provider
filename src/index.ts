@@ -1,5 +1,14 @@
 import MultiProvider, { ReceivableElement, MultiProviderProps } from './MultiProvider'
-import { useProvider, useNamedProvider, UseNamedProviderConfig, UseProviderConfigs } from './hooks'
+import {
+  useProvider,
+  useNamedProvider,
+  UseNamedProviderConfig,
+  UseNamedProviderConfigAllowUndef,
+  UseNamedProviderConfigDisAllowUndef,
+  UseProviderConfigsAllowUndef,
+  UseProviderConfigsDisAllowUndef,
+  UseProviderConfigs,
+} from './hooks'
 import { Provider, ProviderProps } from './Provider'
 import { ContextData, ProviderContext } from './ProviderContext'
 import { ProviderScope, ProviderScopeProps } from './ProviderScope'
@@ -36,7 +45,16 @@ export { Create }
 export { ProviderProps, Provider }
 export { ProviderScope, ProviderScopeProps }
 export { ProviderContext, ContextData }
-export { useProvider, useNamedProvider, UseNamedProviderConfig, UseProviderConfigs }
+export {
+  useProvider,
+  useNamedProvider,
+  UseNamedProviderConfig,
+  UseNamedProviderConfigAllowUndef,
+  UseNamedProviderConfigDisAllowUndef,
+  UseProviderConfigsAllowUndef,
+  UseProviderConfigsDisAllowUndef,
+  UseProviderConfigs,
+}
 export { MultiProvider, ReceivableElement, MultiProviderProps }
 export { ResourcesNotProvidedError }
 export { getObjectRuntimeName, isCreate }

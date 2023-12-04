@@ -183,6 +183,78 @@ const myNumber = useNamedProvider<CustomType>('custom-data-type') // return {val
 
 This allows you to dynamically retrieve values based on the specified name and type.
 
+#### Consumer Component
+
+Similar to the Context API, this library provides a `Consumer` component that corresponds to the hooks introduced above.
+
+For both `primitive` and `class` types, akin to the `useProvider` hook, you can use:
+
+```tsx
+<Consumer ctor={Number}>{
+  (number) => 
+    // children
+  
+}</Consumer>
+
+<Consumer ctor={Boolean}>{
+  (boolean) => 
+    // children
+  
+}</Consumer>
+
+<Consumer ctor={String}>{
+  (text) => 
+    // children
+  
+}</Consumer>
+
+<Consumer ctor={Counter}>{
+  (counter) => 
+    // children
+  
+}</Consumer>
+
+<Consumer name='customCounterName' ctor={Counter}>{
+  (counter) => 
+    // children
+  
+}</Consumer>
+```
+
+For custom `type`, `interface`, or any of the types supported by the `useNamedProvider` hook, you can utilize the `Consumer` component as follows:
+
+```tsx
+<Consumer<number> name="customNumberName">{
+  (number) => 
+    // children
+  
+}</Consumer>
+
+<Consumer<boolean> name="customBooleanName">{
+  (boolean) => 
+    // children
+  
+}</Consumer>
+
+<Consumer<string> name="customTextName">{
+  (text) => 
+    // children
+  
+}</Consumer>
+
+<Consumer<Counter> name="customCounterName">{
+  (counter) => 
+    // children
+  
+}</Consumer>
+
+<Consumer<CustomDataType> name='customDataType'>{
+  (customData) => 
+    // children
+  
+}</Consumer>
+```
+
 ### Context hell
 
 Deeply nested components wrapping each other to provide values can become hard to read and maintain, making the code more difficult to change the order, or add/remove providers. This challenge is commonly known as "Context hell."

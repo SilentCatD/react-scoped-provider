@@ -1,3 +1,7 @@
+# 1.1.1
+
+- Change Props name for MultiProvider
+
 # 1.1.0
 
 - Add `Consumer` component.

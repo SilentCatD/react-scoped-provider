@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Add `Consumer` component.
+
 # 1.0.2
 
 - Fix docs typo

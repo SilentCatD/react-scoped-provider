@@ -6,6 +6,8 @@ import { ProviderScope, ProviderScopeProps } from './ProviderScope'
 import { ResourcesNotProvidedError } from './errors'
 import { getObjectRuntimeName, isCreate } from './utils'
 import { Create } from './types'
+import { Consumer, ConsumberProps } from './Consumer'
+export { ConsumberProps, Consumer }
 export { Create }
 export { ProviderProps, Provider }
 export { ProviderScope, ProviderScopeProps }

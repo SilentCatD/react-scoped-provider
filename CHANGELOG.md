@@ -1,3 +1,7 @@
+# 1.3.2
+
+- Found out a way to use abstract constructor type.
+
 # 1.3.1
 
 - Remove `ctor` from `ProviderProps`, use `name` instead

@@ -13,7 +13,13 @@ class SuperClass {
   }
 }
 
-class SubClass extends SuperClass {}
+class SubClass extends SuperClass {
+  count2: number
+  constructor(count2: number) {
+    super(0)
+    this.count2 = count2
+  }
+}
 
 it('respect Subclass type', () => {
   const { container } = render(

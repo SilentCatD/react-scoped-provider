@@ -1,6 +1,7 @@
-# next version
+# 1.2.0
 
 - Cleanup function of `Provider` only called for `create` source.
+- Allow undefined instead of throwing error in `useProvider`, `useNamedProvider` and `Consumer`.
 
 # 1.1.1
 

@@ -24,7 +24,7 @@ class SubClass extends SuperClass {
 it('respect Subclass type', () => {
   const { container } = render(
     <Provider source={new SubClass(5)}>
-      <DisplayRendered name='SubClass' />
+      <DisplayRendered name={SubClass.name} />
     </Provider>,
   )
   const rendered = getByTestId(container, 'text')
@@ -35,20 +35,8 @@ it('respect Subclass type', () => {
 
 it('respect Superclass ctor type', () => {
   const { container } = render(
-    <Provider ctor={SuperClass} source={new SubClass(5)}>
-      <DisplayRendered name='SuperClass' />
-    </Provider>,
-  )
-  const rendered = getByTestId(container, 'text')
-  const renderedText = rendered.textContent
-  const expectedText = 'Rendered'
-  expect(renderedText).toBe(expectedText)
-})
-
-it('respect specified name', () => {
-  const { container } = render(
-    <Provider ctor={SuperClass} source={new SubClass(5)} name='custom-name'>
-      <DisplayRendered name='custom-name' />
+    <Provider name={SuperClass.name} source={new SubClass(5)}>
+      <DisplayRendered name={SuperClass.name} />
     </Provider>,
   )
   const rendered = getByTestId(container, 'text')

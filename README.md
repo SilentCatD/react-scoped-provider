@@ -93,9 +93,7 @@ This mechanism is important for retrieving the value later on, especially when d
 #### Abstract Provider
 
 For class instance, `Provider` will automatically infer name of the type based on provided value. But in architecture point of view, there are times we would need to hide the type of implementation and expose abstraction superclass only.
-To do this, we can use the `ctor` parameter in `Provider`
-
-You can do the same with the `name` parameter too. Infact, all of this behavior will be overwritten by the `name` parameter when specified.
+To do this, we can use the `name` parameter in `Provider`
 
 ```tsx
 class SuperClass {}
@@ -103,7 +101,7 @@ class SuperClass {}
 class SubClass extends SuperClasss {}
 
 // map query key will be 'SuperClass'
-<Provider ctor={SuperClass} source={new SubClass()}>
+<Provider name={SuperClass.name} source={new SubClass()}>
     <Children />
 </Provider>,
 ```

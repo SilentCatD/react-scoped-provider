@@ -104,6 +104,8 @@ class SubClass extends SuperClasss {}
 <Provider name={SuperClass.name} source={new SubClass()}>
     <Children />
 </Provider>,
+
+// hooks can then use the type `SuperClass` to retrieve value too
 ```
 
 #### Scoped data overwrite

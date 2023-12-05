@@ -14,7 +14,7 @@ import { ContextData, ProviderContext } from './ProviderContext'
 import { ProviderScope, ProviderScopeProps } from './ProviderScope'
 import { ResourcesNotProvidedError } from './errors'
 import { getObjectRuntimeName, isCreate } from './utils'
-import { Create } from './types'
+import { Create, Constructor } from './types'
 import {
   Consumer,
   NumberConsumerAllowUndefProps,
@@ -41,7 +41,7 @@ export type {
   NamedConsumerDisAllowUndefProps,
   NamedConsumerAllowUndefProps,
 }
-export { Create }
+export { Create, Constructor }
 export { ProviderProps, Provider, CreateProviderProps, ValueProviderProps }
 export { ProviderScope, ProviderScopeProps }
 export { ProviderContext, ContextData }

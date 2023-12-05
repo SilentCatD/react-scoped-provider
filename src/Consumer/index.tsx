@@ -1,10 +1,11 @@
 import { useNamedProvider } from '../hooks'
+import { Constructor } from '../types'
 import { getObjectRuntimeName } from '../utils'
 
 interface ConsumerProps<T> {
   children: (data: T) => JSX.Element
   name?: string
-  ctor?: new (...a: any) => any
+  ctor?: Constructor<any>
   allowUndef?: boolean
 }
 
@@ -22,7 +23,7 @@ interface NamedConsumerDisAllowUndefProps<T> extends NamedConsumerProps<T> {
 }
 
 interface CtorConsumerProps<T> extends ConsumerProps<T> {
-  ctor: new (...a: any) => T
+  ctor: Constructor<T>
 }
 
 interface CtorConsumerAllowUndefProps<T> extends CtorConsumerProps<T | undefined> {

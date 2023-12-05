@@ -1,4 +1,4 @@
-# new verion
+# 1.3.0
 
 - Fix doc typo
 - Add `ctor` param for `ProviderProps`

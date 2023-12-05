@@ -9,7 +9,7 @@ import {
   UseProviderConfigsDisAllowUndef,
   UseProviderConfigs,
 } from './hooks'
-import { Provider, ProviderProps } from './Provider'
+import { Provider, ProviderProps, CreateProviderProps, ValueProviderProps } from './Provider'
 import { ContextData, ProviderContext } from './ProviderContext'
 import { ProviderScope, ProviderScopeProps } from './ProviderScope'
 import { ResourcesNotProvidedError } from './errors'
@@ -42,7 +42,7 @@ export type {
   NamedConsumerAllowUndefProps,
 }
 export { Create }
-export { ProviderProps, Provider }
+export { ProviderProps, Provider, CreateProviderProps, ValueProviderProps }
 export { ProviderScope, ProviderScopeProps }
 export { ProviderContext, ContextData }
 export {

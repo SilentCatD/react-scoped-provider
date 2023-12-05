@@ -54,7 +54,7 @@ Expose a persisted instance between renders. This value will be kept with `useRe
 </Provider>,
 ```
 
-These 2 two types only should be used one at a time for each `Provider` and kept it that way throughout the component's lifeCycle. Use them interchangably may cause unexpected behavior.
+These 2 two types only should be used one at a time for each `Provider` and kept it that way throughout the component's lifeCycle. Use them interchangeably may cause unexpected behavior.
 
 #### Named Provider
 
@@ -89,6 +89,24 @@ const data: CustomType = {value: "text"};
 ```
 
 This mechanism is important for retrieving the value later on, especially when dealing with complex type systems in TypeScript.
+
+#### Abstract Provider
+
+For class instance, `Provider` will automatically infer name of the type based on provided value. But in architecture point of view, there are times we would need to hide the type of implementation and expose abstraction superclass only.
+To do this, we can use the `ctor` parameter in `Provider`
+
+You can do the same with the `name` parameter too. Infact, all of this behavior will be overwritten by the `name` parameter when specified.
+
+```tsx
+class SuperClass {}
+
+class SubClass extends SuperClasss {}
+
+// map query key will be 'SuperClass'
+<Provider ctor={SuperClass} source={new SubClass()}>
+    <Children />
+</Provider>,
+```
 
 #### Scoped data overwrite
 

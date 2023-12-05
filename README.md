@@ -259,6 +259,42 @@ For custom `type`, `interface`, or any of the types supported by the `useNamedPr
 }</Consumer>
 ```
 
+### Allow undefined
+
+Even though throwing `ResourcesNotProvidedError` when resources can't be located is the default behavior. You can change this to make `Consumer`, `useNamedProvider` and `useProvider` to return `undefined` instead with the `allowUndef` flag.
+
+```tsx
+// return type of `customData` will become `CustomData | undefined`
+const customData = useProvider(CustomData, { allowUndef: true, name: 'custom' })
+```
+
+```tsx
+// return type of `text` will become `string | undefined`
+const text = useNamedProvider<string>('test-text', { allowUndef: true })
+```
+
+Try changing these flag to `false`, you will see returned type get updated.
+
+For `Consumer`:
+
+```tsx
+// type of `customData` will become `CustomData | undefined`
+<Consumer<CustomDataType> allowUndef name='customDataType'>{
+  (customData) =>
+    // children
+
+}</Consumer>
+```
+
+```tsx
+// type of `counter` will become `Counter | undefined`
+<Consumer allowUndef name='customCounterName' ctor={Counter}>{
+  (counter) =>
+    // children
+
+}</Consumer>
+```
+
 ### Context hell
 
 Deeply nested components wrapping each other to provide values can become hard to read and maintain, making the code more difficult to change the order, or add/remove providers. This challenge is commonly known as "Context hell."

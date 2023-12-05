@@ -1,3 +1,7 @@
+# new verion
+
+- Fix doc typo
+
 # 1.2.0
 
 - Cleanup function of `Provider` only called for `create` source.

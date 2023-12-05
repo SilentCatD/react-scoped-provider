@@ -1,5 +1,14 @@
 import MultiProvider, { ReceivableElement, MultiProviderProps } from './MultiProvider'
-import { useProvider, useNamedProvider } from './hooks'
+import {
+  useProvider,
+  useNamedProvider,
+  UseNamedProviderConfig,
+  UseNamedProviderConfigAllowUndef,
+  UseNamedProviderConfigDisAllowUndef,
+  UseProviderConfigsAllowUndef,
+  UseProviderConfigsDisAllowUndef,
+  UseProviderConfigs,
+} from './hooks'
 import { Provider, ProviderProps } from './Provider'
 import { ContextData, ProviderContext } from './ProviderContext'
 import { ProviderScope, ProviderScopeProps } from './ProviderScope'
@@ -8,27 +17,44 @@ import { getObjectRuntimeName, isCreate } from './utils'
 import { Create } from './types'
 import {
   Consumer,
-  ConsumerProps,
-  BooleanConsumerProps,
-  NumberConsumerProps,
-  StringConsumerProps,
-  CtorConsumerProps,
-  NamedConsumerProps,
+  NumberConsumerAllowUndefProps,
+  NumberConsumerDisAllowUndefProps,
+  BooleanConsumerAllowUndefProps,
+  BooleanConsumerDisAllowUndefProps,
+  StringConsumerAllowUndefProps,
+  StringConsumerDisAllowUndefProps,
+  CtorConsumerAllowUndefProps,
+  CtorConsumerDisAllowUndefProps,
+  NamedConsumerDisAllowUndefProps,
+  NamedConsumerAllowUndefProps,
 } from './Consumer'
 export { Consumer }
 export type {
-  ConsumerProps,
-  BooleanConsumerProps,
-  NumberConsumerProps,
-  StringConsumerProps,
-  CtorConsumerProps,
-  NamedConsumerProps,
+  NumberConsumerAllowUndefProps,
+  NumberConsumerDisAllowUndefProps,
+  BooleanConsumerAllowUndefProps,
+  BooleanConsumerDisAllowUndefProps,
+  StringConsumerAllowUndefProps,
+  StringConsumerDisAllowUndefProps,
+  CtorConsumerAllowUndefProps,
+  CtorConsumerDisAllowUndefProps,
+  NamedConsumerDisAllowUndefProps,
+  NamedConsumerAllowUndefProps,
 }
 export { Create }
 export { ProviderProps, Provider }
 export { ProviderScope, ProviderScopeProps }
 export { ProviderContext, ContextData }
-export { useProvider, useNamedProvider }
+export {
+  useProvider,
+  useNamedProvider,
+  UseNamedProviderConfig,
+  UseNamedProviderConfigAllowUndef,
+  UseNamedProviderConfigDisAllowUndef,
+  UseProviderConfigsAllowUndef,
+  UseProviderConfigsDisAllowUndef,
+  UseProviderConfigs,
+}
 export { MultiProvider, ReceivableElement, MultiProviderProps }
 export { ResourcesNotProvidedError }
 export { getObjectRuntimeName, isCreate }

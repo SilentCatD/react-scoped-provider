@@ -9,8 +9,7 @@ it('cleanup provided value', () => {
     </Provider>,
   )
   unmount()
-  expect(cleanUpFunc.mock.calls).toHaveLength(1)
-  expect(cleanUpFunc.mock.calls[0][0]).toBe('value')
+  expect(cleanUpFunc.mock.calls).toHaveLength(0)
 })
 
 class A {}

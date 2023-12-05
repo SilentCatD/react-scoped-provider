@@ -1,3 +1,7 @@
+# next version
+
+- Cleanup function of `Provider` only called for `create` source.
+
 # 1.1.1
 
 - Change Props name for MultiProvider

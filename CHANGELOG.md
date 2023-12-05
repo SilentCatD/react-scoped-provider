@@ -1,6 +1,8 @@
 # new verion
 
 - Fix doc typo
+- Add `ctor` param for `ProviderProps`
+- Separate `ProviderProps` to disallow using `cleanUp` when use it with `source: T`
 
 # 1.2.0
 

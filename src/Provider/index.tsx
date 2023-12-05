@@ -8,15 +8,17 @@ interface ProviderProps<T> {
   cleanUp?: (data: T) => void
   name?: string
   children?: ReactNode
-  ctor?: new (...a: any) => T
+  ctor?: new (...a: any) => any
 }
 
 interface CreateProviderProps<T> extends ProviderProps<T> {
   source: Create<T>
+  ctor?: new (...a: any) => T
 }
 interface ValueProviderProps<T> extends ProviderProps<T> {
   source: T
   cleanUp?: undefined
+  ctor?: new (...a: any) => T
 }
 
 function Provider<T>(props: ValueProviderProps<T>): JSX.Element

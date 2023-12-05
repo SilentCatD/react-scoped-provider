@@ -54,6 +54,8 @@ Expose a persisted instance between renders. This value will be kept with `useRe
 </Provider>,
 ```
 
+These 2 two type only should be use one at a time for each `Provider` and keep it that way throughout the Component LifeCycle. Use them interchangably may cause unexpected behavior.
+
 #### Named Provider
 
 Out of the box, the `Provider` component will auto infer the type of each passed-in value for `primitives` and `class`, then uses them as the `name` to query instances.
@@ -106,10 +108,12 @@ In the above example, the second `Provider` will replace the value provided by t
 
 Each `Provider` comes with a `cleanUp` function inside `ProviderProps`, providing a mechanism to clean up, dispose of, or perform operations on the data when the `Provider` is unmounted from the render-tree.
 
-The `cleanUp` function is executed automatically when the `Provider` is unmounted, ensuring proper handling of resources associated with the provided data.
+The `cleanUp` function is executed automatically when the `Provider` is unmounted to cleanup created resources, ensuring proper handling of resources associated with the provided data.
+
+This function is only called for `Provider` with `Create<T>` or `()=> T` in the `source` params to cleanup persisted value. If you use `Provider` with a `source` of type `T`, cleanup function won't be called for that resources
 
 ```tsx
-<Provider source={'value'} cleanUp={(value : string)=> {
+<Provider source={() => 'value'} cleanUp={(value : string)=> {
     // do something here
 }}>
     <Children />
@@ -191,33 +195,33 @@ For both `primitive` and `class` types, akin to the `useProvider` hook, you can 
 
 ```tsx
 <Consumer ctor={Number}>{
-  (number) => 
+  (number) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer ctor={Boolean}>{
-  (boolean) => 
+  (boolean) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer ctor={String}>{
-  (text) => 
+  (text) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer ctor={Counter}>{
-  (counter) => 
+  (counter) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer name='customCounterName' ctor={Counter}>{
-  (counter) => 
+  (counter) =>
     // children
-  
+
 }</Consumer>
 ```
 
@@ -225,33 +229,33 @@ For custom `type`, `interface`, or any of the types supported by the `useNamedPr
 
 ```tsx
 <Consumer<number> name="customNumberName">{
-  (number) => 
+  (number) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<boolean> name="customBooleanName">{
-  (boolean) => 
+  (boolean) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<string> name="customTextName">{
-  (text) => 
+  (text) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<Counter> name="customCounterName">{
-  (counter) => 
+  (counter) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<CustomDataType> name='customDataType'>{
-  (customData) => 
+  (customData) =>
     // children
-  
+
 }</Consumer>
 ```
 

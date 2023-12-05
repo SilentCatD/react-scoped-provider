@@ -54,7 +54,7 @@ Expose a persisted instance between renders. This value will be kept with `useRe
 </Provider>,
 ```
 
-These 2 two type only should be use one at a time for each `Provider` and keep it that way throughout the Component LifeCycle. Use them interchangably may cause unexpected behavior.
+These 2 two types only should be used one at a time for each `Provider` and kept it that way throughout the component's lifeCycle. Use them interchangably may cause unexpected behavior.
 
 #### Named Provider
 

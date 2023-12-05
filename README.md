@@ -191,33 +191,33 @@ For both `primitive` and `class` types, akin to the `useProvider` hook, you can 
 
 ```tsx
 <Consumer ctor={Number}>{
-  (number) => 
+  (number) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer ctor={Boolean}>{
-  (boolean) => 
+  (boolean) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer ctor={String}>{
-  (text) => 
+  (text) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer ctor={Counter}>{
-  (counter) => 
+  (counter) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer name='customCounterName' ctor={Counter}>{
-  (counter) => 
+  (counter) =>
     // children
-  
+
 }</Consumer>
 ```
 
@@ -225,33 +225,69 @@ For custom `type`, `interface`, or any of the types supported by the `useNamedPr
 
 ```tsx
 <Consumer<number> name="customNumberName">{
-  (number) => 
+  (number) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<boolean> name="customBooleanName">{
-  (boolean) => 
+  (boolean) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<string> name="customTextName">{
-  (text) => 
+  (text) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<Counter> name="customCounterName">{
-  (counter) => 
+  (counter) =>
     // children
-  
+
 }</Consumer>
 
 <Consumer<CustomDataType> name='customDataType'>{
-  (customData) => 
+  (customData) =>
     // children
-  
+
+}</Consumer>
+```
+
+### Allow undefined
+
+Even though throwing `ResourcesNotProvidedError` when resources can't be located is the default behavior. You can change this to make `Consumer`, `useNamedProvider` and `useProvider` to return `undefined` instead with the `allowUndef` flag.
+
+```tsx
+// return type of `customData` will become `CustomData | undefined`
+const customData = useProvider(CustomData, { allowUndef: true, name: 'custom' })
+```
+
+```tsx
+// return type of `text` will become `string | undefined`
+const text = useNamedProvider<string>('test-text', { allowUndef: true })
+```
+
+Try changing these flag to `false`, you will see returned type get updated.
+
+For `Consumer`:
+
+```tsx
+// type of `customData` will become `CustomData | undefined`
+<Consumer<CustomDataType> allowUndef name='customDataType'>{
+  (customData) =>
+    // children
+
+}</Consumer>
+```
+
+```tsx
+// type of `counter` will become `Counter | undefined`
+<Consumer allowUndef name='customCounterName' ctor={Counter}>{
+  (counter) =>
+    // children
+
 }</Consumer>
 ```
 

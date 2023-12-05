@@ -1,3 +1,7 @@
+# 1.3.1
+
+- Remove `ctor` from `ProviderProps`, use `name` instead
+
 # 1.3.0
 
 - Fix doc typo

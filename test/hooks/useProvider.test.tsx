@@ -2,10 +2,16 @@ import { PropsWithChildren, useState } from 'react'
 import { MultiProvider, Provider, ResourcesNotProvidedError, useProvider } from '../../src'
 import { fireEvent, getByTestId, render, waitFor } from '@testing-library/react'
 
-class Counter {
+abstract class Counter {
   count: number
   constructor(count: number) {
     this.count = count
+  }
+}
+
+class CounterImpl extends Counter {
+  constructor() {
+    super(6)
   }
 }
 
@@ -25,7 +31,7 @@ const ProviderComponent = ({ children }: PropsWithChildren) => {
         <Provider key={1} source={5} />,
         <Provider key={2} source={true} />,
         <Provider key={3} source={'test-text'} />,
-        <Provider key={4} source={new Counter(6)} />,
+        <Provider name={Counter.name} key={4} source={new CounterImpl()} />,
         <Provider key={5} source={new CustomData('test-key', 'test-val')} name='custom' />,
       ]}
     >

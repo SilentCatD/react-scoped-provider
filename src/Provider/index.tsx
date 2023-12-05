@@ -15,7 +15,9 @@ function Provider<T>({ source, cleanUp, children, name }: PropsWithChildren<Prov
     return () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       const currentData = createdData.current
-      cleanUp?.(currentData ?? valueData!)
+      if (currentData !== undefined) {
+        cleanUp?.(currentData)
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

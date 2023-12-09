@@ -33,4 +33,4 @@ function useNamedProvider<T>(name: string, configs?: UseNamedProviderConfig): T 
 }
 
 export default useNamedProvider
-export { UseNamedProviderConfigDisAllowUndef, UseNamedProviderConfig, UseNamedProviderConfigAllowUndef }
+export type { UseNamedProviderConfigDisAllowUndef, UseNamedProviderConfig, UseNamedProviderConfigAllowUndef }

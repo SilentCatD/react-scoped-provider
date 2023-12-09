@@ -41,13 +41,15 @@ export type {
   NamedConsumerDisAllowUndefProps,
   NamedConsumerAllowUndefProps,
 }
-export { Create, Constructor }
-export { ProviderProps, Provider, CreateProviderProps, ValueProviderProps }
-export { ProviderScope, ProviderScopeProps }
-export { ProviderContext, ContextData }
-export {
-  useProvider,
-  useNamedProvider,
+export type { Create, Constructor }
+export { Provider }
+export type { ProviderProps, CreateProviderProps, ValueProviderProps }
+export { ProviderScope }
+export type { ProviderScopeProps }
+export { ProviderContext }
+export type { ContextData }
+export { useProvider, useNamedProvider }
+export type {
   UseNamedProviderConfig,
   UseNamedProviderConfigAllowUndef,
   UseNamedProviderConfigDisAllowUndef,
@@ -55,6 +57,7 @@ export {
   UseProviderConfigsDisAllowUndef,
   UseProviderConfigs,
 }
-export { MultiProvider, ReceivableElement, MultiProviderProps }
+export { MultiProvider }
+export type { ReceivableElement, MultiProviderProps }
 export { ResourcesNotProvidedError }
 export { getObjectRuntimeName, isCreate }

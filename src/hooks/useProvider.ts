@@ -35,4 +35,4 @@ function useProvider<T>(ctor: Constructor<T>, configs?: string | UseProviderConf
 }
 
 export default useProvider
-export { UseProviderConfigsAllowUndef, UseProviderConfigsDisAllowUndef, UseProviderConfigs }
+export type { UseProviderConfigsAllowUndef, UseProviderConfigsDisAllowUndef, UseProviderConfigs }

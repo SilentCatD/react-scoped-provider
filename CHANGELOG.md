@@ -1,3 +1,7 @@
+# 1.3.3
+
+- enable `isolatedModules` in tsconfig
+
 # 1.3.2
 
 - Found out a way to use abstract constructor type.
